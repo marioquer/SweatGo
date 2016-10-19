@@ -1,0 +1,119 @@
+body {
+    font-family: Helvetica, Tahoma, Arial, "PingFang SC", Heiti, “黑体”, “Microsoft YaHei”, “微软雅黑”, SimSun, “宋体”, sans-serif;
+}
+
+.thin-text {
+    font-weight: 300;
+}
+
+.normal-text {
+    font-weight: 500;
+}
+
+.bold-text {
+    font-weight: 800;
+}
+
+.padding-left-10 {
+    padding-left: 10px;
+}
+
+.padding-left-30 {
+    padding-left: 30px;
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}
+
+.margin-left-30 {
+    margin-left: 30px;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+@media only screen and (max-width:601px) {
+    #userInfo {
+        display: none;
+    }
+}
+
+.my-userName {
+    font-size: 1.4em;
+    margin-top: 6px;
+    text-align: center;
+}
+
+.user-backColor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 180px;
+}
+
+.my-info li {
+    font-size: 1.3em;
+    margin-top: 5px;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.list-info {
+    margin-top: 16px;
+}
+
+.game-name {
+    font-size: 18px;
+    line-height: 24px;
+    coloc: #596564;
+}
+
+.game-time {
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    color: #9B9B9B;
+}
+
+.game-class {
+    display: inline-block;
+    margin-top: 12px;
+    color: #626E6A;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.game-class-name {
+    display: inline-block;
+    margin-left: 5px;
+    padding-bottom: 4px;
+}
+.moment-time {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #9B9B9B;
+}
+
+.moment-intent {
+    padding: 4px;
+}
+
+.back-color {
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #00897b;
+}
