@@ -3720,6 +3720,22 @@ input[type=range] + .thumb {
     left: auto;
     right: auto;
   }
+    
+    .row .col.m2-5{
+       width: 20%;
+    margin-left: auto;
+    left: auto;
+    right: auto; 
+    }
+    
+    .row .col.m5-0{
+       width: 60%;
+    margin-left: auto;
+    left: auto;
+    right: auto; 
+    }
+    
+    
   .row .col.m3 {
     width: 25%;
     margin-left: auto;
@@ -3903,6 +3919,23 @@ input[type=range] + .thumb {
     left: auto;
     right: auto;
   }
+    
+  .row .col.l2-5{
+       width: 20%;
+    margin-left: auto;
+    left: auto;
+    right: auto; 
+    }
+    
+    .row .col.l5-0{
+       width: 60%;
+    margin-left: auto;
+    left: auto;
+    right: auto; 
+    }    
+    
+    
+    
   .row .col.l3 {
     width: 25%;
     margin-left: auto;
@@ -4990,6 +5023,10 @@ small {
   transition: .3s;
   cursor: pointer;
   vertical-align: middle;
+}
+
+.btn-floating img{
+    margin-top: 11px;
 }
 
 .btn-floating i {
