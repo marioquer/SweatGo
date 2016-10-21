@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
     <title>Sweat Go!!!</title>
     <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="../css/index.css" type="text/css" rel="stylesheet">
     <link href="../css/common.css" type="text/css" rel="stylesheet"> </head>
@@ -21,7 +20,7 @@
                 <li><a href="health-exercise.html" class="waves-effect waves-light teal-text text-darken-4">健康</a></li>
                 <li><a href="competitions-joined.html" class="waves-effect waves-light teal-text text-darken-4">竞赛</a></li>
                 <li class="active"><a href="moments-all.html" class="waves-effect waves-light teal-text text-darken-4">朋友圈</a></li>
-                <li><a href="messages.html" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">question_answer</i></a></li>
+                <li><a href="messages.html" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">notifications</i></a></li>
                 <li><a href="personal.html" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">person_pin</i></a></li>
             </ul>
             <!--begin sidenav-->
@@ -41,9 +40,9 @@
                 </ul>
                 <ul>
                     <li><a href="" class="waves-effect waves-teal teal-text text-darken-4 ">竞 赛 &nbsp;&nbsp;Competitions</a></li>
-                    <li><a href="competition-joined.html" class="thin-text grey-text">&nbsp;&nbsp;我的竞赛 &nbsp;&nbsp;Joined</a></li>
-                    <li><a href="competition-individual.html" class="thin-text grey-text">&nbsp;&nbsp;个人赛 &nbsp;&nbsp;Individual</a></li>
-                    <li><a href="competition-groups.html" class="thin-text grey-text">&nbsp;&nbsp;小组赛 &nbsp;&nbsp;Groups</a></li>
+                    <li><a href="competitions-joined.html" class="thin-text grey-text">&nbsp;&nbsp;我的竞赛 &nbsp;&nbsp;Joined</a></li>
+                    <li><a href="competitions-individual.html" class="thin-text grey-text">&nbsp;&nbsp;个人赛 &nbsp;&nbsp;Individual</a></li>
+                    <li><a href="competitions-groups.html" class="thin-text grey-text">&nbsp;&nbsp;小组赛 &nbsp;&nbsp;Groups</a></li>
                 </ul>
                 <ul>
                     <li><a href="" class="waves-effect waves-teal teal-text text-darken-4 ">朋友圈 &nbsp;&nbsp;Moments</a></li>
@@ -84,6 +83,7 @@
             <div class="col l5-0 m5 s12">
                 <div class="card white">
                     <div class="card-content margin-left-10"> <span class="card-title teal-text text-darken-4">全部动态</span>
+                       <div id="refreshButton" class="grey-text text-darken-3 material-icons right margin-top-5">autorenew</div>
                         <div class="bold-divider"></div>
                         <div class="list-info">
                             <div class="chip inline left"> <img src="../image/mario.jpg" alt="Contact Person"> Marioquer </div>
@@ -111,8 +111,13 @@
             </div>
             <div class="col l2-5 m3 s12">
                 <div class="card white">
-                    <div class="card-content margin-left-10 min-height-500"> <span class="card-title teal-text text-darken-4">好友排名</span>
+                    <div class="card-content margin-left-10"> <span class="card-title teal-text text-darken-4">好友排名</span>
                         <div class="bold-divider"></div>
+                        <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span class="rank right teal-text">1</span></div>
+                        <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span class="rank right teal-text">2</span></div>
+                        <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span class="rank right teal-text">3</span></div>
+                        <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span class="rank right teal-text">4</span></div>
+                        <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span class="rank right teal-text">5</span></div>
                     </div>
                 </div>
             </div>
