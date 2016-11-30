@@ -1,2 +1,20 @@
-User-agent: *
-Disallow:
+User-agent: Baiduspider
+Allow:/
+
+User-agent: compatible;Googlebot/2.1
+Allow:/
+
+User-Agent: 360Spider
+Allow:/
+
+User-Agent: Sosospider
+Allow:/
+
+User-agent: YoudaoBot
+Disallow:/public/
+
+User-agent: sogou News Spider
+Disallow:/public/
+
+User-agent: bingbot
+Allow:/

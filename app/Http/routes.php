@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('test',function(){
+    return view('index');
+});
+
 //健康模块
 Route::group(['prefix' => 'health'], function () {
     Route::group(['prefix' => 'exercise'], function () {
