@@ -1,14 +1,12 @@
 @extends('common.layout')
 
 @section('nav-item')
-    <li class="active"><a href="index.html" class="teal-text text-darken-4">首页</a></li>
-    <li><a href="health-exercise.html" class="waves-effect waves-light grey-text text-darken-1">健康</a></li>
-    <li><a href="competitions-joined.html" class="waves-effect waves-light grey-text text-darken-1">竞赛</a></li>
-    <li><a href="moments-all.html" class="waves-effect waves-light grey-text text-darken-1">朋友圈</a></li>
-    <li><a href="messages.html" class="waves-effect waves-light grey-text text-darken-1"><i class="material-icons">notifications</i></a>
-    </li>
-    <li><a href="personal.html" class="waves-effect waves-light grey-text text-darken-1"><i class="material-icons">person_pin</i></a>
-    </li>
+    <li class="active"><a href="index" class="teal-text text-darken-4">首页</a></li>
+    <li><a href="health/exercise" class="waves-effect waves-light teal-text text-darken-4">健康</a></li>
+    <li><a href="competition/joined" class="waves-effect waves-light teal-text text-darken-4">竞赛</a></li>
+    <li><a href="moment/all" class="waves-effect waves-light teal-text text-darken-4">朋友圈</a></li>
+    <li><a href="message" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">notifications</i></a></li>
+    <li><a href="user" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">person_pin</i></a></li>
 @stop
 
 @section('right-block')

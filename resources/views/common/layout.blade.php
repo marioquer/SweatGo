@@ -29,48 +29,49 @@
         <ul id="nav-mobile" class="side-nav">
             <li>
                 <div class="userView"><img class="background" src="{{URL::asset('/assets/image/background.jpg')}}">
-                    <a href="#!"><img class="circle" src="{{URL::asset('/assets/image/mario.jpg')}}"></a> <a href="#!"><span
+                    <a href="#!"><img class="circle" src="{{URL::asset('/assets/image/mario.jpg')}}"></a> <a
+                            href="#!"><span
                                 class="white-text name">Marioquer</span></a> <span class="white-text email"></span>
                 </div>
             </li>
             <ul>
-                <li><a href="index.html" class="waves-effect waves-teal teal-text text-darken-4 ">首 页
+                <li><a href="/sweatgo/public/index" class="waves-effect waves-teal teal-text text-darken-4 ">首 页
                         &nbsp;&nbsp;Home</a></li>
             </ul>
             <ul>
-                <li><a href="health.html" class="waves-effect waves-teal teal-text text-darken-4 ">健 康 &nbsp;&nbsp;Health</a>
+                <li><a href="/sweatgo/public/health/exercise" class="waves-effect waves-teal teal-text text-darken-4 ">健 康 &nbsp;&nbsp;Health</a>
                 </li>
-                <li><a href="health-exercise.html" class="hin-text grey-text">&nbsp;&nbsp;运动统计 &nbsp;&nbsp;Exercise</a>
+                <li><a href="/sweatgo/public/health/exercise" class="hin-text grey-text">&nbsp;&nbsp;运动统计 &nbsp;&nbsp;Exercise</a>
                 </li>
-                <li><a href="health-body.html" class="thin-text grey-text">&nbsp;&nbsp;身体指标 &nbsp;&nbsp;Body</a></li>
-                <li><a href="health-sleep.html" class="thin-text grey-text">&nbsp;&nbsp;睡眠状况 &nbsp;&nbsp;Sleep</a></li>
+                <li><a href="/sweatgo/public/health/body" class="thin-text grey-text">&nbsp;&nbsp;身体指标 &nbsp;&nbsp;Body</a></li>
+                <li><a href="/sweatgo/public/health/sleep" class="thin-text grey-text">&nbsp;&nbsp;睡眠状况 &nbsp;&nbsp;Sleep</a></li>
             </ul>
             <ul>
-                <li><a href="competitions.html" class="waves-effect waves-teal teal-text text-darken-4 ">竞 赛 &nbsp;&nbsp;Competitions</a>
+                <li><a href="/sweatgo/public/competition/joined" class="waves-effect waves-teal teal-text text-darken-4 ">竞 赛 &nbsp;&nbsp;Competitions</a>
                 </li>
-                <li><a href="competitions-joined.html" class="thin-text grey-text">&nbsp;&nbsp;我的竞赛
+                <li><a href="/sweatgo/public/competition/joined" class="thin-text grey-text">&nbsp;&nbsp;我的竞赛
                         &nbsp;&nbsp;Joined</a></li>
-                <li><a href="competitions-individual.html" class="thin-text grey-text">&nbsp;&nbsp;个人赛 &nbsp;&nbsp;Individual</a>
+                <li><a href="/sweatgo/public/competition/individual" class="thin-text grey-text">&nbsp;&nbsp;个人赛 &nbsp;&nbsp;Individual</a>
                 </li>
-                <li><a href="competitions-groups.html" class="thin-text grey-text">&nbsp;&nbsp;小组赛
+                <li><a href="/sweatgo/public/competition/group" class="thin-text grey-text">&nbsp;&nbsp;小组赛
                         &nbsp;&nbsp;Groups</a></li>
             </ul>
             <ul>
-                <li><a href="moments.html" class="waves-effect waves-teal teal-text text-darken-4 ">朋友圈 &nbsp;&nbsp;Moments</a>
+                <li><a href="/sweatgo/public/moment/all" class="waves-effect waves-teal teal-text text-darken-4 ">朋友圈 &nbsp;&nbsp;Moments</a>
                 </li>
-                <li><a href="moments-all.html" class="thin-text grey-text">&nbsp;&nbsp;全部动态 &nbsp;&nbsp;All</a></li>
-                <li><a href="moments-friends-post.html" class="thin-text grey-text">&nbsp;&nbsp;好友动态 &nbsp;&nbsp;Friends
+                <li><a href="/sweatgo/public/moment/all" class="thin-text grey-text">&nbsp;&nbsp;全部动态 &nbsp;&nbsp;All</a></li>
+                <li><a href="/sweatgo/public/moment/friend-post" class="thin-text grey-text">&nbsp;&nbsp;好友动态 &nbsp;&nbsp;Friends
                         post</a></li>
-                <li><a href="moments-friends.html" class="thin-text grey-text">&nbsp;&nbsp;我的好友 &nbsp;&nbsp;Friends</a>
+                <li><a href="/sweatgo/public/moment/friend" class="thin-text grey-text">&nbsp;&nbsp;我的好友 &nbsp;&nbsp;Friends</a>
                 </li>
-                <li><a href="moments-published.html" class="thin-text grey-text">&nbsp;&nbsp;我的发布
+                <li><a href="/sweatgo/public/moment/published" class="thin-text grey-text">&nbsp;&nbsp;我的发布
                         &nbsp;&nbsp;Published</a></li>
-                <li><a href="moments-comments.html" class="thin-text grey-text">&nbsp;&nbsp;收到评论
+                <li><a href="/sweatgo/public/moment/comment" class="thin-text grey-text">&nbsp;&nbsp;收到评论
                         &nbsp;&nbsp;Comments</a></li>
-                <li><a href="moments-likes.html" class="thin-text grey-text">&nbsp;&nbsp;收到的赞 &nbsp;&nbsp;Likes</a></li>
+                <li><a href="/sweatgo/public/moment/like" class="thin-text grey-text">&nbsp;&nbsp;收到的赞 &nbsp;&nbsp;Likes</a></li>
             </ul>
             <ul>
-                <li><a href="lessons.html" class="waves-effect waves-teal teal-text text-darken-4 ">教程 &nbsp;&nbsp;Lessons</a>
+                <li><a href="/sweatgo/public/lesson" class="waves-effect waves-teal teal-text text-darken-4 ">教程 &nbsp;&nbsp;Lessons</a>
                 </li>
             </ul>
         </ul>
@@ -100,8 +101,9 @@
                             <li class="thin-text center grey-text text-dartken-4">7.4 hrs</li>
                             <li class="thin-text center grey-text text-dartken-4">103 bpm</li>
                         </ul>
-                        <a class="waves-effect waves-light btn" href="health-body.html">查看健康详情</a></div>
-                @show
+                        <a class="waves-effect waves-light btn" href="health/body">查看健康详情</a>
+                    @show
+                </div>
             </div>
             <div class="card white">
                 <div class="card-content">
