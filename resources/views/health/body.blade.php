@@ -5,8 +5,12 @@
     <li class="active"><a href="exercise" class="waves-effect waves-light teal-text text-darken-4">健康</a></li>
     <li><a href="../competition/joined" class="waves-effect waves-light teal-text text-darken-4">竞赛</a></li>
     <li><a href="../moment/all" class="waves-effect waves-light teal-text text-darken-4">朋友圈</a></li>
-    <li><a href="../message" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">notifications</i></a></li>
-    <li><a href="../user" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">person_pin</i></a></li>
+    <li><a href="../message" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">notifications</i></a>
+    </li>
+    <li><a href="../user" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">account_circle</i></a>
+    </li>
+    <li><a href="../user/logout" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">exit_to_app</i></a>
+    </li>
 @stop
 
 @section('background-color')
@@ -23,28 +27,28 @@
 
 @section('right-block')
     <div class="card white">
-        <div class="card-content margin-left-10"><span class="card-title teal-text text-darken-4">目前指标</span>
+        <div class="card-content margin-left-10"><span class="card-title teal-text text-darken-4">目前指标</span><span class="margin-left-10 grey-text text-darken-1" id="recentTime"></span>
             <div class="bold-divider"></div>
             <div class="row">
                 <div class="col m4 s12">
                     <div class="grey inline" style="border-radius:100px;height:50px;width:50px; margin-top:10px;"></div>
                     <div class="inline margin-left-10 blue-grey-text text-darken-3" style="height:50px;">
                         <div style="font-size:18px;">身 高</div>
-                        <div>100 步</div>
+                        <div id="height">-- cm</div>
                     </div>
                 </div>
                 <div class="col m4 s12">
                     <div class="grey inline" style="border-radius:100px;height:50px;width:50px; margin-top:10px;"></div>
                     <div class="inline margin-left-10 blue-grey-text text-darken-3" style="height:50px;">
                         <div style="font-size:18px;">体 重</div>
-                        <div>2.0 km</div>
+                        <div id="weight">-- kg</div>
                     </div>
                 </div>
                 <div class="col m4 s12">
                     <div class="grey inline" style="border-radius:100px;height:50px;width:50px; margin-top:10px;"></div>
                     <div class="inline margin-left-10 blue-grey-text text-darken-3" style="height:50px;">
                         <div style="font-size:18px;">心 率</div>
-                        <div>1.6 hrs</div>
+                        <div id="rate">-- bpm</div>
                     </div>
                 </div>
             </div>
@@ -53,19 +57,19 @@
     <div class="card white">
         <div class="card-content margin-left-10"><span class="card-title teal-text text-darken-4">身高曲线</span>
             <div class="bold-divider"></div>
-            <div id="heightChart" style="height:300px;width:100%;background:#f0f0f0;"></div>
+            <div id="heightChart" style="height:300px;width:100%;background:#e1f5fe;"></div>
         </div>
     </div>
     <div class="card white">
         <div class="card-content margin-left-10"><span class="card-title teal-text text-darken-4">体重曲线</span>
             <div class="bold-divider"></div>
-            <div id="weightChart" style="height:300px;width:100%;background:#f0f0f0;"></div>
+            <div id="weightChart" style="height:300px;width:100%;background:#e1f5fe;"></div>
         </div>
     </div>
     <div class="card white">
         <div class="card-content margin-left-10"><span class="card-title teal-text text-darken-4">心率曲线</span>
             <div class="bold-divider"></div>
-            <div id="heartrateChart" style="height:300px;width:100%;background:#f0f0f0;"></div>
+            <div id="heartrateChart" style="height:300px;width:100%;background:#e1f5fe;"></div>
         </div>
     </div>
     <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
@@ -73,11 +77,40 @@
         <ul>
             <li><a class="btn-floating red"><i class="material-icons">publish</i></a></li>
             <li>
-                <a class="btn-floating blue"><img style="margin-top:5px;" src="{{URL::asset('/assets/icons/height.svg')}}" alt=""></a>
+                <a class="btn-floating blue"><img style="margin-top:5px;"
+                                                  src="{{URL::asset('/assets/icons/height.svg')}}" alt=""></a>
             </li>
             <li>
                 <a class="btn-floating green"><img src="{{URL::asset('/assets/icons/weight.svg')}}" alt=""></a>
             </li>
         </ul>
     </div>
+@stop
+
+@section('extra_js')
+    <script src="{{URL::asset('/assets/js/echarts.min.js')}}"></script>
+    <script src="{{URL::asset('/assets/js-chart/body_chart.js')}}"></script>
+    <script>
+        var id = {{Session::get('user')->id}};
+        $.ajax({
+            method: "post",
+            url: "body/getRecent",
+            async: false,
+            data: {
+                "id": id
+            },
+            success: function (result) {
+                var data = JSON.parse(result);
+                $("#height").html(data.height + " cm");
+                $("#weight").html(data.weight + " kg");
+                $("#rate").html(data.heart_rate + " bpm");
+                $("#recentTime").html("最后更新于  "+ data.updatedAt.split(" ")[0]);
+            },
+            error: function () {
+                window.location.href = "../error";
+            }
+        });
+
+        getBodyChart(id);
+    </script>
 @stop

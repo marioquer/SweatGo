@@ -5,8 +5,12 @@
     <li class="active"><a href="exercise" class="waves-effect waves-light teal-text text-darken-4">健康</a></li>
     <li><a href="../competition/joined" class="waves-effect waves-light teal-text text-darken-4">竞赛</a></li>
     <li><a href="../moment/all" class="waves-effect waves-light teal-text text-darken-4">朋友圈</a></li>
-    <li><a href="../message" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">notifications</i></a></li>
-    <li><a href="../user" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">person_pin</i></a></li>
+    <li><a href="../message" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">notifications</i></a>
+    </li>
+    <li><a href="../user" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">account_circle</i></a>
+    </li>
+    <li><a href="../user/logout" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">exit_to_app</i></a>
+    </li>
 @stop
 
 @section('background-color')
@@ -23,15 +27,26 @@
 
 @section('right-block')
     <div class="card white">
-        <div class="card-content margin-left-10"> <span class="card-title teal-text text-darken-4">昨日睡眠情况</span>
+        <div class="card-content margin-left-10"><span class="card-title teal-text text-darken-4">昨日睡眠情况</span>
             <div class="bold-divider"></div>
-            <div id="sleepChart" style="height:100px;width:100%;background:#f0f0f0;"></div>
+            <div id="sleepForm" style="height:60px;width:100%;background:#e1f5fe;"></div>
         </div>
     </div>
     <div class="card white">
-        <div class="card-content margin-left-10"> <span class="card-title teal-text text-darken-4">睡眠曲线</span>
+        <div class="card-content margin-left-10"><span class="card-title teal-text text-darken-4">睡眠曲线</span>
             <div class="bold-divider"></div>
-            <div id="sleepChart" style="height:300px;width:100%;background:#f0f0f0;"></div>
+            <div id="sleepChart" style="height:300px;width:100%;background:#e1f5fe;"></div>
         </div>
     </div>
+@stop
+
+@section('extra_js')
+    <script src="{{URL::asset('/assets/js/echarts.min.js')}}"></script>
+    <script src="{{URL::asset('/assets/js-chart/today_sleep.js')}}"></script>
+    <script src="{{URL::asset('/assets/js-chart/all_sleep.js')}}"></script>
+    <script>
+        var id = {{Session::get("user")->id}};
+        getSleepForm(id);
+        getSleepChart(id);
+    </script>
 @stop

@@ -2,6 +2,13 @@ body {
     font-family: Helvetica, Tahoma, Arial, "PingFang SC", Heiti, “黑体”, “Microsoft YaHei”, “微软雅黑”, SimSun, “宋体”, sans-serif;
 }
 
+.image-container{
+    width: 40%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -23,6 +30,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
     /* Support for IE. */
     font-feature-settings: 'liga';
+}
+
+.none{
+    display: none;
 }
 
 .thin-text {
@@ -117,13 +128,14 @@ body {
 }
 
 .game-name {
+    margin-top: 1px;
     font-size: 18px;
     line-height: 24px;
-    coloc: #596564;
+    color: #596564;
 }
 
 .game-time {
-    margin-top: 4px;
+    margin-top: 2px;
     font-size: 14px;
     font-weight: 300;
     line-height: 18px;
@@ -219,3 +231,20 @@ ul li.active {
 #refreshButton:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+
+@media (min-width : 993px){
+    #newCom{
+        width: 700px;
+    }
+}
+
+@media (max-width : 600px){
+    #newCom{
+        width: 360px;
+    }
+}
+
+
+
+

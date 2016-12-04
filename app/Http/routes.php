@@ -12,45 +12,79 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $user = session()->get('user');
+    if(isset($user)){
+        return view('index');
+    }else{
+        return view('welcome');
+    }
+});
+
+Route::get('error', function () {
+    return view('errors.503');
+});
+
+Route::get('test', function () {
+    return view('test');
 });
 
 Route::get('index', function () {
-    return view('index');
+    $user = session()->get('user');
+    if(isset($user)){
+        return view('index');
+    }else{
+        return redirect()->to('/');
+    }
 });
 
 //健康模块
 Route::group(['prefix' => 'health'], function () {
-
-
+    //运动数据
     Route::group(['prefix' => 'exercise'], function () {
         Route::get('', function () {
-            return view('health.exercise');
+            $user = session()->get('user');
+            if(isset($user)){
+                return view('health.exercise');
+            }else{
+                return redirect()->to('/');
+            }
         });
-        Route::get('getToday', 'HealthController@getTodayExercise');
+        Route::post('getToday', 'HealthController@getTodayExercise');
         Route::post('getAll', 'HealthController@getAllExercise');
         Route::post('addToday', 'HealthController@addTodayExercise');
         Route::post('addMany', 'HealthController@addManyExercise');
     });
 
+    //身体数据
     Route::group(['prefix' => 'body'], function () {
         Route::get('', function () {
-            return view('health.body');
+            $user = session()->get('user');
+            if(isset($user)){
+                return view('health.body');
+            }else{
+                return redirect()->to('/');
+            }
         });
-        Route::get('getRecent', 'HealthController@getRecentBody');
+        Route::post('getRecent', 'HealthController@getRecentBody');
         Route::post('getAll', 'HealthController@getAllBody');
         Route::post('addToday', 'HealthController@addTodayBody');
         Route::post('addMany', 'HealthController@addManyBody');
     });
 
+    //睡眠数据
     Route::group(['prefix' => 'sleep'], function () {
         Route::get('', function () {
-            return view('health.sleep');
+            $user = session()->get('user');
+            if(isset($user)){
+                return view('health.sleep');
+            }else{
+                return redirect()->to('/');
+            }
         });
-        Route::get('getToday', 'HealthController@getTodaySleep');
-        Route::post('getAll', 'HealthController@getTodaySleep');
-        Route::post('addToday', 'HealthController@getTodaySleep');
-        Route::post('addMany', 'HealthController@getTodaySleep');
+        Route::post('getToday', 'HealthController@getTodaySleep');
+        Route::post('getAll', 'HealthController@getAllSleep');
+        Route::post('addToday', 'HealthController@addTodaySleep');
+        Route::post('addMany', 'HealthController@addManySleep');
     });
 });
 
@@ -63,8 +97,14 @@ Route::group(['prefix' => 'competition'], function () {
     //我的竞赛
     Route::group(['prefix' => 'joined'], function () {
         Route::get('', function () {
-            return view("competition.joined");
+            $user = session()->get('user');
+            if(isset($user)){
+                return view("competition.joined");
+            }else{
+                return redirect()->to('/');
+            }
         });
+        Route::post('getMine', 'CompetitionController@getMine');
         Route::post('getJoinedIndividual', 'CompetitionController@getJoinedIndividual');
         Route::post('getJoinedGroup', 'CompetitionController@getJoinedGroup');
         Route::post('getMyIndividual', 'CompetitionController@getMyIndividual');
@@ -75,7 +115,12 @@ Route::group(['prefix' => 'competition'], function () {
     //个人赛
     Route::group(['prefix' => 'individual'], function () {
         Route::get('', function () {
-            return view("competition.individual");
+            $user = session()->get('user');
+            if(isset($user)){
+                return view("competition.individual");
+            }else{
+                return redirect()->to('/');
+            }
         });
         Route::post('getAll', 'CompetitionController@getAllIndividual');
     });
@@ -84,7 +129,12 @@ Route::group(['prefix' => 'competition'], function () {
     //小组赛
     Route::group(['prefix' => 'group'], function () {
         Route::get('', function () {
-            return view("competition.group");
+            $user = session()->get('user');
+            if(isset($user)){
+                return view("competition.group");
+            }else{
+                return redirect()->to('/');
+            }
         });
         Route::post('getAll', 'CompetitionController@getAllGroup');
     });
@@ -93,28 +143,64 @@ Route::group(['prefix' => 'competition'], function () {
 
 //朋友圈模块
 Route::group(['prefix' => 'moment'], function () {
+    //所有动态
     Route::get('all', function () {
-        return view("moment.all");
+        $user = session()->get('user');
+        if(isset($user)){
+            return view("moment.all");
+        }else{
+            return redirect()->to('/');
+        }
     });
 
+    //我的评论
     Route::get('comment', function () {
-        return view('moment.comment');
+        $user = session()->get('user');
+        if(isset($user)){
+            return view('moment.comment');
+        }else{
+            return redirect()->to('/');
+        }
     });
 
+    //我的好友
     Route::get('friend', function () {
-        return view('moment.friend');
+        $user = session()->get('user');
+        if(isset($user)){
+            return view('moment.friend');
+        }else{
+            return redirect()->to('/');
+        }
     });
 
+    //好友动态
     Route::get('friend-post', function () {
-        return view('moment.friend-post');
+        $user = session()->get('user');
+        if(isset($user)){
+            return view('moment.friend-post');
+        }else{
+            return redirect()->to('/');
+        }
     });
 
+    //收到的赞
     Route::get('like', function () {
-        return view('moment.like');
+        $user = session()->get('user');
+        if(isset($user)){
+            return view('moment.like');
+        }else{
+            return redirect()->to('/');
+        }
     });
 
+    //我的发布
     Route::get('published', function () {
-        return view('moment.published');
+        $user = session()->get('user');
+        if(isset($user)){
+            return view('moment.published');
+        }else{
+            return redirect()->to('/');
+        }
     });
 
     Route::post('getAll', 'MomentController@getAll');
@@ -140,11 +226,16 @@ Route::group(['prefix' => 'friend'], function () {
 //用户模块
 Route::group(['prefix' => 'user'], function () {
     Route::get('', function () {
-        return view("personal.person");
+        $user = session()->get('user');
+        if(isset($user)){
+            return view("personal.person");
+        }else{
+            return redirect()->to('/');
+        }
     });
     Route::post('getInfo', 'UserController@getInfo');
     Route::post('login', 'UserController@login');
-    Route::post('logout', 'UserController@logout');
+    Route::get('logout', 'UserController@logout');
     Route::post('logup', 'UserController@logup');
     Route::post('applyRole', 'UserController@applyRole');
     Route::post('agreeRole', 'UserController@agreeRole');
@@ -154,7 +245,12 @@ Route::group(['prefix' => 'user'], function () {
 //消息模块
 Route::group(['prefix' => 'message'], function () {
     Route::get('', function () {
-        return view("personal.message");
+        $user = session()->get('user');
+        if(isset($user)){
+            return view("personal.message");
+        }else{
+            return redirect()->to('/');
+        }
     });
 });
 

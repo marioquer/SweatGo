@@ -9,16 +9,20 @@
         <!-- CSS  -->
         <link href="{{URL::asset('/assets/css/materialize.css')}}" type="text/css" rel="stylesheet"
               media="screen,projection">
-        <link href="{{URL::asset('/assets/css/index.css')}}" type="text/css" rel="stylesheet">
         <link href="{{URL::asset('/assets/css/common.css')}}" type="text/css" rel="stylesheet">
     @show
 </head>
+
+<?php
+$user = Session::get('user');
+?>
 
 <body class="min-height-700">
 <div class="back-color" style="background-color: #00897b;"></div>
 <nav class="transparent" role="navigation" style="box-shadow: 0 0 0 0 rgb(0, 0, 0);">
     <div class="nav-wrapper container">
-        <a href="#" class="brand-logo"><img class="responsive-img" src="{{URL::asset('/assets/image/logo-white.svg')}}" alt=""></a>
+        <a href="#" class="brand-logo"><img class="responsive-img" src="{{URL::asset('/assets/image/logo-white.svg')}}"
+                                            alt=""></a>
         <ul class="right hide-on-med-and-down">
             @section('nav-item')
             @show
@@ -109,9 +113,11 @@
     @show
 </footer>
 <!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="../js/materialize.js"></script>
-<script src="../js/init.js"></script>
+<script src="{{URL::asset('/assets/js/jquery.min.js')}}"></script>
+<script src="{{URL::asset('/assets/js/materialize.js')}}"></script>
+<script src="{{URL::asset('/assets/js/init.js')}}"></script>
+@section('extra_js')
+@show
 </body>
 
 </html>

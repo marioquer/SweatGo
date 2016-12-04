@@ -8,10 +8,19 @@
         <!-- CSS  -->
         <link href="{{URL::asset('/assets/css/materialize.css')}}" type="text/css" rel="stylesheet"
               media="screen,projection">
-        <link href="{{URL::asset('/assets/css/index.css')}}" type="text/css" rel="stylesheet">
         <link href="{{URL::asset('/assets/css/common.css')}}" type="text/css" rel="stylesheet">
     @show
 </head>
+
+<?php
+$user = Session::get('user');
+$sex_url;
+if($user->sex == "男"){
+    $sex_url = "/assets/icons/boy.svg";
+}else{
+    $sex_url = "/assets/icons/girl.svg";
+}
+?>
 
 <body>
 @section('background-color')
@@ -29,9 +38,9 @@
         <ul id="nav-mobile" class="side-nav">
             <li>
                 <div class="userView"><img class="background" src="{{URL::asset('/assets/image/background.jpg')}}">
-                    <a href="#!"><img class="circle" src="{{URL::asset('/assets/image/mario.jpg')}}"></a> <a
+                    <a href="#!"><img class="circle" src="{{URL::asset($user->avatar_url)}}"></a> <a
                             href="#!"><span
-                                class="white-text name">Marioquer</span></a> <span class="white-text email"></span>
+                                class="white-text name">{{$user->nickname}}</span></a> <span class="white-text email"></span>
                 </div>
             </li>
             <ul>
@@ -39,15 +48,19 @@
                         &nbsp;&nbsp;Home</a></li>
             </ul>
             <ul>
-                <li><a href="/sweatgo/public/health/exercise" class="waves-effect waves-teal teal-text text-darken-4 ">健 康 &nbsp;&nbsp;Health</a>
+                <li><a href="/sweatgo/public/health/exercise" class="waves-effect waves-teal teal-text text-darken-4 ">健
+                        康 &nbsp;&nbsp;Health</a>
                 </li>
                 <li><a href="/sweatgo/public/health/exercise" class="hin-text grey-text">&nbsp;&nbsp;运动统计 &nbsp;&nbsp;Exercise</a>
                 </li>
-                <li><a href="/sweatgo/public/health/body" class="thin-text grey-text">&nbsp;&nbsp;身体指标 &nbsp;&nbsp;Body</a></li>
-                <li><a href="/sweatgo/public/health/sleep" class="thin-text grey-text">&nbsp;&nbsp;睡眠状况 &nbsp;&nbsp;Sleep</a></li>
+                <li><a href="/sweatgo/public/health/body" class="thin-text grey-text">&nbsp;&nbsp;身体指标
+                        &nbsp;&nbsp;Body</a></li>
+                <li><a href="/sweatgo/public/health/sleep" class="thin-text grey-text">&nbsp;&nbsp;睡眠状况 &nbsp;&nbsp;Sleep</a>
+                </li>
             </ul>
             <ul>
-                <li><a href="/sweatgo/public/competition/joined" class="waves-effect waves-teal teal-text text-darken-4 ">竞 赛 &nbsp;&nbsp;Competitions</a>
+                <li><a href="/sweatgo/public/competition/joined"
+                       class="waves-effect waves-teal teal-text text-darken-4 ">竞 赛 &nbsp;&nbsp;Competitions</a>
                 </li>
                 <li><a href="/sweatgo/public/competition/joined" class="thin-text grey-text">&nbsp;&nbsp;我的竞赛
                         &nbsp;&nbsp;Joined</a></li>
@@ -57,9 +70,11 @@
                         &nbsp;&nbsp;Groups</a></li>
             </ul>
             <ul>
-                <li><a href="/sweatgo/public/moment/all" class="waves-effect waves-teal teal-text text-darken-4 ">朋友圈 &nbsp;&nbsp;Moments</a>
+                <li><a href="/sweatgo/public/moment/all" class="waves-effect waves-teal teal-text text-darken-4 ">朋友圈
+                        &nbsp;&nbsp;Moments</a>
                 </li>
-                <li><a href="/sweatgo/public/moment/all" class="thin-text grey-text">&nbsp;&nbsp;全部动态 &nbsp;&nbsp;All</a></li>
+                <li><a href="/sweatgo/public/moment/all" class="thin-text grey-text">&nbsp;&nbsp;全部动态
+                        &nbsp;&nbsp;All</a></li>
                 <li><a href="/sweatgo/public/moment/friend-post" class="thin-text grey-text">&nbsp;&nbsp;好友动态 &nbsp;&nbsp;Friends
                         post</a></li>
                 <li><a href="/sweatgo/public/moment/friend" class="thin-text grey-text">&nbsp;&nbsp;我的好友 &nbsp;&nbsp;Friends</a>
@@ -68,7 +83,8 @@
                         &nbsp;&nbsp;Published</a></li>
                 <li><a href="/sweatgo/public/moment/comment" class="thin-text grey-text">&nbsp;&nbsp;收到评论
                         &nbsp;&nbsp;Comments</a></li>
-                <li><a href="/sweatgo/public/moment/like" class="thin-text grey-text">&nbsp;&nbsp;收到的赞 &nbsp;&nbsp;Likes</a></li>
+                <li><a href="/sweatgo/public/moment/like" class="thin-text grey-text">&nbsp;&nbsp;收到的赞
+                        &nbsp;&nbsp;Likes</a></li>
             </ul>
             <ul>
                 <li><a href="/sweatgo/public/lesson" class="waves-effect waves-teal teal-text text-darken-4 ">教程 &nbsp;&nbsp;Lessons</a>
@@ -85,23 +101,16 @@
         <div class="col l3 m4 s12" id="userInfo">
             <div class="card white">
                 <div class="card-content center">
-                    <div class="image-container"><img src="{{URL::asset('/assets/image/mario.jpg')}}" alt=""
+                    <div class="image-container"><img src="{{URL::asset($user->avatar_url)}}" alt=""
                                                       class="responsive-img circle">
                     </div>
-                    <div class="my-userName teal-text text-darken-4">Marioquer <img style="margin-left:4px;"
-                                                                                    src="{{URL::asset('/assets/icons/boy.svg')}}"
-                                                                                    alt=""><span>18</span>
+                    <div class="my-userName teal-text text-darken-4">{{$user->nickname}} <img style="margin-left:4px;"
+                                                                                    src="{{URL::asset($sex_url)}}"
+                                                                                    alt="">
                     </div>
-                    <div class="my-userInfo">江苏·南京 南京大学</div>
+                    <div class="my-userInfo">{{$user->province}}·{{$user->city}} {{$user->office}}</div>
                     <div class="divider"></div>
                     @section('info-nav')
-                        <ul class="my-info">
-                            <li class="thin-text center grey-text text-dartken-4">180 cm</li>
-                            <li class="thin-text center grey-text text-dartken-4">60.0 kg</li>
-                            <li class="thin-text center grey-text text-dartken-4">7.4 hrs</li>
-                            <li class="thin-text center grey-text text-dartken-4">103 bpm</li>
-                        </ul>
-                        <a class="waves-effect waves-light btn" href="health/body">查看健康详情</a>
                     @show
                 </div>
             </div>
@@ -137,8 +146,10 @@
     @show
 </footer>
 <!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="{{URL::asset('/assets/js/jquery.min.js')}}"></script>
 <script src="{{URL::asset('/assets/js/materialize.js')}}"></script>
 <script src="{{URL::asset('/assets/js/init.js')}}"></script>
+@section('extra_js')
+@show
 </body>
 </html>

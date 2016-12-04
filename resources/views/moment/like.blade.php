@@ -7,8 +7,10 @@
     <li class="active"><a href="all" class="waves-effect waves-light teal-text text-darken-4">朋友圈</a></li>
     <li><a href="../message" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">notifications</i></a>
     </li>
-    <li><a href="../user" class="waves-effect waves-light teal-text text-darken-3"><i
-                    class="material-icons">person_pin</i></a></li>
+    <li><a href="../user" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">account_circle</i></a>
+    </li>
+    <li><a href="../user/logout" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">exit_to_app</i></a>
+    </li>
 @stop
 
 @section('info-nav')

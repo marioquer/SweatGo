@@ -12,7 +12,9 @@ class SleepData extends Model
     //指定id
     protected $primaryKey = 'id';
 
-    const CREATED_AT = 'createdAt';
+    public $timestamps = false;
 
-    const UPDATED_AT = 'updatedAt';
+    
+//    const CREATED_AT = 'createdAt';
+//    const UPDATED_AT = 'updatedAt';
 }

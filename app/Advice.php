@@ -18,6 +18,8 @@ class Advice extends Model{
 
     //指定id
     protected $primaryKey = 'id';
+    
+    protected $guarded = ['id'];
 
     const CREATED_AT = 'createdAt';
     

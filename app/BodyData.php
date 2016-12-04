@@ -12,6 +12,10 @@ class BodyData extends Model
     //指定id
     protected $primaryKey = 'id';
 
+    protected $guarded = [];
+
+//    public $timestamps = false;
+
     const CREATED_AT = 'createdAt';
 
     const UPDATED_AT = 'updatedAt';

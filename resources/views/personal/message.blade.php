@@ -6,7 +6,10 @@
     <li><a href="competition/joined" class="waves-effect waves-light white-text">竞赛</a></li>
     <li><a href="moment/all" class="waves-effect waves-light white-text">朋友圈</a></li>
     <li class="active"><a href="message" class="waves-effect waves-light teal-text white-text"><i class="material-icons">notifications</i></a></li>
-    <li><a href="user" class="waves-effect waves-light white-text"><i class="material-icons">person_pin</i></a></li>
+    <li><a href="user" class="waves-effect waves-light teal-text white-text"><i class="material-icons">account_circle</i></a>
+    </li>
+    <li><a href="user/logout" class="waves-effect waves-light teal-text white-text"><i class="material-icons">exit_to_app</i></a>
+    </li>
 @stop
 
 @section('middle-block')

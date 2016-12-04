@@ -5,8 +5,12 @@
     <li><a href="health/exercise" class="waves-effect waves-light white-text">健康</a></li>
     <li><a href="competition/joined" class="waves-effect waves-light white-text">竞赛</a></li>
     <li><a href="moment/all" class="waves-effect waves-light white-text">朋友圈</a></li>
-    <li><a href="message" class="waves-effect waves-light teal-text white-text"><i class="material-icons">notifications</i></a></li>
-    <li class="active"><a href="user" class="waves-effect waves-light white-text"><i class="material-icons">person_pin</i></a></li>
+    <li><a href="message" class="waves-effect waves-light teal-text white-text"><i
+                    class="material-icons">notifications</i></a></li>
+    <li class="active"><a href="user" class="waves-effect waves-light teal-text white-text"><i class="material-icons">account_circle</i></a>
+    </li>
+    <li><a href="user/logout" class="waves-effect waves-light teal-text white-text"><i class="material-icons">exit_to_app</i></a>
+    </li>
 @stop
 
 @section('middle-block')
@@ -25,4 +29,12 @@
             </a>
         </div>
     </div>
+@stop
+
+@section('extra_js')
+    <script>
+        @if(Session::has('new_user'))
+        Materialize.toast('请尽快补充您的个人资料享受更多的服务噢~', 8000);
+        @endif
+    </script>
 @stop

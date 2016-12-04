@@ -6,7 +6,10 @@
     <li class="active"><a href="joined" class="waves-effect waves-light teal-text text-darken-4">竞赛</a></li>
     <li><a href="../moment/all" class="waves-effect waves-light teal-text text-darken-4">朋友圈</a></li>
     <li><a href="../message" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">notifications</i></a></li>
-    <li><a href="../user" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">person_pin</i></a></li>
+    <li><a href="../user" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">account_circle</i></a>
+    </li>
+    <li><a href="../user/logout" class="waves-effect waves-light teal-text text-darken-3"><i class="material-icons">exit_to_app</i></a>
+    </li>
 @stop
 
 @section('background-color')
@@ -81,6 +84,68 @@
         </div>
     </div>
     <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
-        <a class="btn-floating btn-large red lighten-2 waves-effect waves-light"> <i class="large material-icons">add</i> </a>
+        <a href="#newCom" class="btn-floating btn-large red lighten-2 waves-effect waves-light"> <i class="large material-icons">add</i> </a>
     </div>
+
+    <!-- New Modal -->
+    <div id="newCom" class="modal">
+        <div class="modal-content">
+            <h4 class="center-align">发起比赛</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="comName" type="text" class="validate">
+                    <label>活动名称</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <select id="comClass">
+                        <option value="" disabled selected>选择竞赛类别</option>
+                        <option value="INDIVIDUAL">个人赛</option>
+                        <option value="GROUP">小组赛</option>
+                    </select>
+                    <label>类别</label>
+                </div>
+                <div class="input-field col s6">
+                    <select id="comType">
+                        <option value="" disabled selected>选择竞赛项目</option>
+                        <option value="PACE">步数赛</option>
+                        <option value="TIME">时间赛</option>
+                        <option value="MILEAGE">里程赛</option>
+                        <option value="HEAT">热量赛</option>
+                    </select>
+                    <label>项目</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="截止时间" type="date" class="datepicker">
+                </div>
+                <div class="input-field col s6">
+                    <input id="target" type="text" class="validate">
+                    <label>目标值</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="introduction" class="materialize-textarea"></textarea>
+                    <label for="introduction">比赛简介</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a onclick="newCompetition({{Session::get('user')->id}})" href="#!"
+               class=" modal-action waves-effect waves-teal btn-flat teal-text">新建</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-grey btn-flat">取消</a>
+        </div>
+    </div>
+@stop
+
+@section('extra_js')
+    <script src="{{URL::asset('/assets/js/competition.js')}}"></script>
+    <script>
+
+
+
+    </script>
 @stop

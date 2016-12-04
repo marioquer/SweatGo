@@ -8,18 +8,22 @@
         <!-- CSS  -->
         <link href="{{URL::asset('/assets/css/materialize.css')}}" type="text/css" rel="stylesheet"
               media="screen,projection">
-        <link href="{{URL::asset('/assets/css/index.css')}}" type="text/css" rel="stylesheet">
         <link href="{{URL::asset('/assets/css/common.css')}}" type="text/css" rel="stylesheet">
     @show
 </head>
 
+<?php
+$user = Session::get('user');
+?>
+
 <body class="min-height-700">
 @section('background-color')
-    <div class="back-color" style="background-color: #00897b;"></div>
+    <div class="back-color" style="background-color: #fdd835;"></div>
 @show
 <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-        <a href="#" class="brand-logo"><img class="responsive-img" src="{{URL::asset('/assets/image/logo.svg')}}" alt=""></a>
+        <a href="#" class="brand-logo"><img class="responsive-img" src="{{URL::asset('/assets/image/logo.svg')}}"
+                                            alt=""></a>
         <ul class="right hide-on-med-and-down">
             @section('nav-item')
             @show
@@ -91,10 +95,12 @@
         <div class="col l2-5 m4 s12" id="userInfo">
             <div class="card white padding-bottom-20">
                 <div class="card-content center">
-                    <div class="image-container"><img src="{{URL::asset('/assets/image/mario.jpg')}}" alt="" class="responsive-img circle">
+                    <div class="image-container"><img src="{{URL::asset('/assets/image/mario.jpg')}}" alt=""
+                                                      class="responsive-img circle">
                     </div>
                     <div class="my-userName teal-text text-darken-4">Marioquer <img style="margin-left:4px;"
-                                                                                    src="{{URL::asset('/assets/icons/boy.svg')}}" alt=""><span>18</span>
+                                                                                    src="{{URL::asset('/assets/icons/boy.svg')}}"
+                                                                                    alt=""><span>18</span>
                     </div>
                     <div class="my-userInfo">江苏·南京 南京大学</div>
                     <div class="divider"></div>
@@ -137,9 +143,11 @@
     @show
 </footer>
 <!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="../js/materialize.js"></script>
-<script src="../js/init.js"></script>
+<script src="{{URL::asset('/assets/js/jquery.min.js')}}"></script>
+<script src="{{URL::asset('/assets/js/materialize.js')}}"></script>
+<script src="{{URL::asset('/assets/js/init.js')}}"></script>
+@section('extra_js')
+@show
 </body>
 
 </html>
