@@ -149,6 +149,10 @@ if($user->sex == "男"){
 <script src="{{URL::asset('/assets/js/jquery.min.js')}}"></script>
 <script src="{{URL::asset('/assets/js/materialize.js')}}"></script>
 <script src="{{URL::asset('/assets/js/init.js')}}"></script>
+<script>
+
+
+</script>
 @section('extra_js')
 @show
 </body>

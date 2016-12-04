@@ -34,7 +34,7 @@ $user = Session::get('user');
                 <div class="userView"><img class="background" src="{{URL::asset('/assets/image/background.jpg')}}">
                     <a href="#!"><img class="circle" src="{{URL::asset('/assets/image/mario.jpg')}}"></a> <a
                             href="#!"><span
-                                class="white-text name">Marioquer</span></a> <span class="white-text email"></span>
+                                class="white-text name">{{Session::get('user')->nickname}}</span></a> <span class="white-text email"></span>
                 </div>
             </li>
             <ul>
@@ -98,11 +98,11 @@ $user = Session::get('user');
                     <div class="image-container"><img src="{{URL::asset('/assets/image/mario.jpg')}}" alt=""
                                                       class="responsive-img circle">
                     </div>
-                    <div class="my-userName teal-text text-darken-4">Marioquer <img style="margin-left:4px;"
+                    <div class="my-userName teal-text text-darken-4">{{Session::get('user')->nickname}} <img style="margin-left:4px;"
                                                                                     src="{{URL::asset('/assets/icons/boy.svg')}}"
                                                                                     alt=""><span>18</span>
                     </div>
-                    <div class="my-userInfo">江苏·南京 南京大学</div>
+                    <div class="my-userInfo">{{$user->province}}·{{$user->city}} {{$user->office}}</div>
                     <div class="divider"></div>
                 </div>
                 @section('info-nav')
@@ -115,15 +115,54 @@ $user = Session::get('user');
         </div>
         <div class="col l2-5 m3 s12">
             @section('right-block')
+                <div class="card white">
+                    <div class="card-content margin-left-10"><span
+                                class="card-title teal-text text-darken-4">好友排名</span>
+                        <div class="bold-divider"></div>
+                        <div class="rank-item"><span
+                                    class="rank-name left blue-grey-text text-darken-4">mario</span><span
+                                    class="rank right teal-text">1</span></div>
+                        <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">handsome</span><span
+                                    class="rank right teal-text">2</span></div>
+                        <div class="rank-item"><span
+                                    class="rank-name left blue-grey-text text-darken-4">chao</span><span
+                                    class="rank right teal-text">3</span></div>
+                        <div class="rank-item"><span
+                                    class="rank-name left blue-grey-text text-darken-4">frebin</span><span
+                                    class="rank right teal-text">4</span></div>
+                        <div class="rank-item"><span
+                                    class="rank-name left blue-grey-text text-darken-4">sure</span><span
+                                    class="rank right teal-text">5</span></div>
+                    </div>
+                </div>
             @show
         </div>
         <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
-            <a class="btn-floating btn-large yellow darken-1 waves-effect waves-light"> <i class="large material-icons">mode_edit</i>
+            <a href="#newMoment" class="btn-floating btn-large yellow darken-1 waves-effect waves-light"> <i
+                        class="large material-icons">mode_edit</i>
             </a>
         </div>
     </div>
 </div>
 <footer class="page-footer teal">
+    @section('modal')
+        <div id="newMoment" class="modal" style="width: 550px; height:300px;">
+            <div class="modal-content">
+                <div class="row" style="margin-top: 20px;">
+                    <div class="input-field col s12">
+                    <textarea placeholder="记录你的运动点滴吧~" id="moment"
+                              class="materialize-textarea"></textarea>
+                        <label for="introduction">新动态</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a onclick="publishMoment({{Session::get('user')->id}})" href="#!"
+                   class=" modal-action waves-effect waves-teal btn-flat teal-text">发布</a>
+                <a href="#!" class=" modal-action modal-close waves-effect waves-grey btn-flat">取消</a>
+            </div>
+        </div>
+    @show
     @section('footer')
         <div class="container">
             <div class="row">
@@ -146,8 +185,30 @@ $user = Session::get('user');
 <script src="{{URL::asset('/assets/js/jquery.min.js')}}"></script>
 <script src="{{URL::asset('/assets/js/materialize.js')}}"></script>
 <script src="{{URL::asset('/assets/js/init.js')}}"></script>
+<script>
+    function publishMoment(id) {
+        var text = document.getElementById("moment").value;
+        $.ajax({
+            type: "post",
+            async: false, //同步执行
+            url: 'publish',
+            data: {
+                "text": text,
+                "uid": id
+            },
+            success: function (result) {
+                if (result == "success") {
+                    Materialize.toast('发布成功!', 1200);
+                    setTimeout("window.location.href = 'all'",1200);
+                }
+            },
+            error: function () {
+                Materialize.toast('服务器出问题啦, 发布失败!', 1200);
+            }
+        });
+    }
+</script>
 @section('extra_js')
 @show
 </body>
-
 </html>

@@ -13,5 +13,6 @@ class Moment extends Model
     protected $primaryKey = 'id';
 
     const CREATED_AT = 'createdAt';
+    const UPDATED_AT = 'updatedAt';
 
 }

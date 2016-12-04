@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div class="col m2 s6 list-info" style="margin-top: 23px;">
-                            <a class="waves-effect waves-teal btn-flat teal-text">查看</a>
+                            <a class="action-button waves-effect waves-teal btn-flat teal-text">查看</a>
                         </div>
                     </div>
                 </div>
@@ -122,13 +122,13 @@
 @section('extra_js')
     <script src="{{URL::asset('/assets/js/competition.js')}}"></script>
     <script>
-        var id = {{Session::get('user')->id}}, published, joined;
+        var uid = {{Session::get('user')->id}}, published, joined;
 
         $.ajax({
             type: "post",
             async: false, //同步执行
             url: 'joined/getMine',
-            data: {"id": id},
+            data: {"id": uid},
             dataType: "json",
             success: function (result) {
                 published = result.published;
@@ -154,7 +154,7 @@
                     }else if(published[i].type == "TIME"){
                         div.getElementsByClassName("game-class-name")[0].innerHTML = "时间赛";
                     }
-                    document.getElementById("attend").appendChild(div);
+                    document.getElementById("hold").appendChild(div);
                 }
 
                 for (var i = 0; i < joined.length; i++) {
@@ -178,7 +178,7 @@
                     }else if(joined[i].type == "TIME"){
                         div.getElementsByClassName("game-class-name")[0].innerHTML = "时间赛";
                     }
-                    document.getElementById("hold").appendChild(div);
+                    document.getElementById("attend").appendChild(div);
                 }
             },
             error: function () {

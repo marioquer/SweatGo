@@ -6,10 +6,36 @@
     <title>Welcome to SweatGo!!!</title>
 
     <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ URL::asset('/assets/css/materialize.css')}}" type="text/css" rel="stylesheet"
           media="screen,projection"/>
     <link href="{{ URL::asset('/assets/css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{{URL::asset('/assets/css/common.css')}}" type="text/css" rel="stylesheet">
+    <style type="text/css">
+
+        .sprite {
+            background-image: url("{{ URL::asset('/assets/image/sprite.png') }}");
+            background-repeat: no-repeat;
+            display: block;
+        }
+
+        .sprite-background1 {
+            width: 1440px;
+            height: 743px;
+            background-position: -5px -5px;
+        }
+
+        .sprite-background2 {
+            width: 1440px;
+            height: 801px;
+            background-position: -5px -758px;
+        }
+
+        .sprite-background3 {
+            width: 1440px;
+            height: 835px;
+            background-position: -1455px -5px;
+        }
+    </style>
 </head>
 
 <?php
@@ -51,7 +77,7 @@ $user = Session::get('user');
 
         </div>
     </div>
-    <div class="parallax"><img src="{{URL::asset('/assets/image/background1.jpg')}}" alt="Unsplashed background img 1">
+    <div class="parallax" ><img class="sprite sprite-background1" src="" alt="Unsplashed background img 1">
     </div>
 </div>
 
@@ -101,7 +127,7 @@ $user = Session::get('user');
             </div>
         </div>
     </div>
-    <div class="parallax"><img src="{{URL::asset('/assets/image/background2.jpg')}}" alt="Unsplashed background img 2">
+    <div class="parallax"><img class="sprite sprite-background2" alt="Unsplashed background img 2">
     </div>
 </div>
 
@@ -128,7 +154,7 @@ $user = Session::get('user');
             </div>
         </div>
     </div>
-    <div class="parallax"><img src="{{URL::asset('/assets/image/background3.jpg')}}" alt="Unsplashed background img 3">
+    <div class="parallax"><img class="sprite sprite-background3" alt="Unsplashed background img 3">
     </div>
 </div>
 
@@ -205,7 +231,7 @@ $user = Session::get('user');
 
 
 <!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="{{URL::asset('/assets/js/jquery.min.js')}}"></script>
 <script src="{{URL::asset('/assets/js/materialize.js')}}"></script>
 <script src="{{URL::asset('/assets/js/init.js')}}"></script>
 <script>

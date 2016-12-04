@@ -216,7 +216,7 @@ ul li.active {
     font-size: 16px;
 }
 
-#refreshButton {
+.refreshButton {
     width: 24px;
     height: 24px;
     border-radius: 4px;
@@ -228,7 +228,7 @@ ul li.active {
     -mozilla-transition: .3s;
 }
 
-#refreshButton:hover {
+.refreshButton:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 

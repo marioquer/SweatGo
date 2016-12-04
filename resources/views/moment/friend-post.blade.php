@@ -26,55 +26,23 @@
 
 @section('middle-block')
     <div class="card white">
-        <div class="card-content margin-left-10"><span class="card-title teal-text text-darken-4">好友动态</span>
-            <div id="refreshButton" class="grey-text text-darken-3 material-icons right margin-top-5">autorenew</div>
+        <div id="momentList" class="card-content margin-left-10 "><span class="card-title teal-text text-darken-4">好友动态</span>
+            <div onclick="window.location.href='friend-post'" class="refreshButton grey-text text-darken-3 material-icons right margin-top-5">autorenew</div>
             <div class="bold-divider"></div>
-            <div class="list-info">
-                <div class="chip inline left"><img src="../image/mario.jpg" alt="Contact Person"> Marioquer</div>
-                <div class="moment-time inline margin-left-10"> 10月20日 20:00:00</div>
-                <div class="moment-time inline margin-left-10 right"> 12 赞</div>
-                <div class="moment-time inline margin-left-10 right"> 10 评论</div>
-            </div>
-            <div class="margin-top-10 moment-intent blue-grey-text text-darken-2">
-                我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈
-            </div>
-            <div class="list-info">
-                <div class="chip inline left"><img src="../image/mario.jpg" alt="Contact Person"> Marioquer</div>
-                <div class="moment-time inline margin-left-10"> 10月20日 20:00:00</div>
-                <div class="moment-time inline margin-left-10 right"> 12 赞</div>
-                <div class="moment-time inline margin-left-10 right"> 10 评论</div>
-            </div>
-            <div class="margin-top-10 moment-intent blue-grey-text text-darken-2">
-                我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈
-            </div>
-            <div class="list-info">
-                <div class="chip inline left"><img src="../image/mario.jpg" alt="Contact Person"> Marioquer</div>
-                <div class="moment-time inline margin-left-10"> 10月20日 20:00:00</div>
-                <div class="moment-time inline margin-left-10 right"> 12 赞</div>
-                <div class="moment-time inline margin-left-10 right"> 10 评论</div>
-            </div>
-            <div class="margin-top-10 moment-intent blue-grey-text text-darken-2">
-                我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈我的天啊哈哈哈
-            </div>
-        </div>
-    </div>
-@stop
 
+            <div id="momentItem" class="none">
+                <div class="list-info">
+                    <div class="chip inline left"><img src="{{URL::asset('/assets/image/mario.jpg')}}"
+                                                       alt="Contact Person">
+                        <span class="nickname"></span></div>
+                    <div class="moment-time inline margin-left-10 time"> 10月20日 20:00:00</div>
+                    <div class="moment-time inline margin-left-10 right"> 12 赞</div>
+                    <div class="moment-time inline margin-left-10 right"> 10 评论</div>
+                </div>
+                <div class="margin-top-10 moment-intent blue-grey-text text-darken-2">
 
-@section('right-block')
-    <div class="card white">
-        <div class="card-content margin-left-10"><span class="card-title teal-text text-darken-4">好友排名</span>
-            <div class="bold-divider"></div>
-            <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span
-                        class="rank right teal-text">1</span></div>
-            <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span
-                        class="rank right teal-text">2</span></div>
-            <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span
-                        class="rank right teal-text">3</span></div>
-            <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span
-                        class="rank right teal-text">4</span></div>
-            <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span
-                        class="rank right teal-text">5</span></div>
+                </div>
+            </div>
         </div>
     </div>
 @stop

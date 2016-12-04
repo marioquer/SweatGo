@@ -12,9 +12,22 @@ use App\Http\Controllers\Controller;
 
 class CompetitionController extends Controller
 {
-    public function join()
+    public function join(Request $request)
     {
-        return "aaa";
+        $comId = $request->comId;
+        $uid = $request->uid;
+        $comProcess = new CompetitionProcess();
+        $comProcess->competition_id = $comId;
+        $comProcess->user_id = $uid;
+        $comProcess->data = 0;
+        $comProcess->percent = 0;
+        $result = $comProcess->save();
+
+        if ($result) {
+            return "success";
+        } else {
+            return "fail";
+        }
     }
 
     public function publish(Request $request)
@@ -47,7 +60,6 @@ class CompetitionController extends Controller
 
     public function getMine(Request $request)
     {
-        $comProcess = new CompetitionProcess();
         $comInfo = new CompetitionInfo();
 
         $published = $comInfo->where('author_id', $request->id)->take(5)->get();
@@ -85,14 +97,50 @@ class CompetitionController extends Controller
         return "aaa";
     }
 
-    public function getAllIndividual()
+    public function getIndividual(Request $request)
     {
-        return "aaa";
+        $comPces = new CompetitionProcess();
+        $comInfo = new CompetitionInfo();
+
+        $all = $comInfo->where('class','INDIVIDUAL')->orderBy('end_time', 'asc')->take(10)->get();
+        $mine = DB::table('competition_info')
+            ->join('competition_process', 'competition_info.id', '=', 'competition_process.competition_id')
+            ->where('class','INDIVIDUAL')
+            ->where('competition_process.user_id', $request->id)
+            ->take(5)
+            ->get();
+        $attend = $comPces->where('user_id',$request->id)->select('competition_id')->get();
+
+        $result = [
+            "all" => $all,
+            "mine" => $mine,
+            "attend" => $attend
+        ];
+
+        return json_encode($result);
     }
 
-    public function getAllGroup()
+    public function getGroup(Request $request)
     {
-        return "aaa";
+        $comPces = new CompetitionProcess();
+        $comInfo = new CompetitionInfo();
+
+        $all = $comInfo->where('class','GROUP')->orderBy('end_time', 'asc')->take(10)->get();
+        $mine = DB::table('competition_info')
+            ->join('competition_process', 'competition_info.id', '=', 'competition_process.competition_id')
+            ->where('class','GROUP')
+            ->where('competition_process.user_id', $request->id)
+            ->take(5)
+            ->get();
+        $attend = $comPces->where('user_id',$request->id)->select('competition_id')->get();
+
+        $result = [
+            "all" => $all,
+            "mine" => $mine,
+            "attend" => $attend
+        ];
+
+        return json_encode($result);
     }
 
 }

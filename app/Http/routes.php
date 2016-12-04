@@ -122,7 +122,7 @@ Route::group(['prefix' => 'competition'], function () {
                 return redirect()->to('/');
             }
         });
-        Route::post('getAll', 'CompetitionController@getAllIndividual');
+        Route::post('getIndividual', 'CompetitionController@getIndividual');
     });
 
 
@@ -136,7 +136,7 @@ Route::group(['prefix' => 'competition'], function () {
                 return redirect()->to('/');
             }
         });
-        Route::post('getAll', 'CompetitionController@getAllGroup');
+        Route::post('getGroup', 'CompetitionController@getGroup');
     });
 });
 
@@ -203,6 +203,7 @@ Route::group(['prefix' => 'moment'], function () {
         }
     });
 
+    Route::post('publish', 'MomentController@publish');
     Route::post('getAll', 'MomentController@getAll');
     Route::post('getNew', 'MomentController@getNew');
     Route::post('getFriendPost', 'MomentController@getFriendPost');

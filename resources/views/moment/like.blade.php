@@ -31,21 +31,3 @@
         </div>
     </div>
 @stop
-
-@section('right-block')
-    <div class="card white">
-        <div class="card-content margin-left-10"><span class="card-title teal-text text-darken-4">好友排名</span>
-            <div class="bold-divider"></div>
-            <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span
-                        class="rank right teal-text">1</span></div>
-            <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span
-                        class="rank right teal-text">2</span></div>
-            <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span
-                        class="rank right teal-text">3</span></div>
-            <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span
-                        class="rank right teal-text">4</span></div>
-            <div class="rank-item"><span class="rank-name left blue-grey-text text-darken-4">Marioquer</span><span
-                        class="rank right teal-text">5</span></div>
-        </div>
-    </div>
-@stop

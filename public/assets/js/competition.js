@@ -95,3 +95,32 @@ function newCompetition(id) {
         Materialize.toast('目标值必须为整数噢!', 1200);
     }
 }
+
+function join(node, id) {
+    var comId = node.parentNode.parentNode.getElementsByClassName("comId")[0].innerHTML;
+
+    $.ajax({
+        type: "post",
+        async: false, //同步执行
+        url: 'join',
+        data: {
+            "comId": comId,
+            "uid": id
+        },
+        success: function (result) {
+            if (result == "success") {
+                Materialize.toast('加入成功!', 1200);
+                setTimeout("window.location.href = 'joined'",1200);
+            }
+        },
+        error: function () {
+            Materialize.toast('服务器出问题啦, 发布失败!', 1200);
+        }
+    });
+
+
+}
+
+function detail() {
+
+}
